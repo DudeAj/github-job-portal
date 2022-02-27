@@ -1,0 +1,37 @@
+@import '../../global.scss';
+
+.rightContainer {
+    flex:0.7;
+
+        @include mobile {
+            margin-top: 20px;
+        }
+
+        .heading {
+            display: flex;
+
+            @include mobile {
+                display: block;
+            }
+
+            h2 {
+                color:$mainColor;
+                margin: 0;
+                text-transform: capitalize;
+                margin-right: 20px;
+                margin-bottom: 5px;
+
+            }
+        }
+
+    .UserInformation {
+        margin-top: 10px;
+        .infoUser {
+            margin-bottom: 20px;
+
+            div {
+                padding-top: 5px;
+            }
+        }
+    }
+}

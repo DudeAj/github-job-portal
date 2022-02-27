@@ -1,0 +1,55 @@
+@import '../../global.scss';
+
+.container {
+    width: 100%;
+
+    .background {
+        background-image: url('../../../public/assets/building.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        object-fit: cover;
+
+        .input-area {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 3px;
+            border-radius: 5px;
+            width: 70%;
+
+            @include mobile {
+                width:90%;
+            }
+
+            .leftContainer {
+                
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .icon {
+                    font-weight: 300;
+                    color: $greyColor;
+                    margin-left:10px
+                }
+
+                input {
+                    font-size:12px;
+                    font-weight: 300;
+                    border: none;
+                    width:100%;
+                    margin: 0 10px;    
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+
+        }
+    }
+}

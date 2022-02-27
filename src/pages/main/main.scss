@@ -1,0 +1,52 @@
+@import '../../global.scss';
+
+
+.main {
+    margin: 20px 90px;
+
+    @include mobile {
+        margin: 10px 16px;
+    }
+    .container-main {
+        display: flex;
+        margin-top: 30px;
+
+        @include mobile {
+            display: block;
+        }
+
+        .leftContainer {
+            flex: 0.3;
+            padding: 10px;
+
+
+            @include mobile {
+                padding: 0;
+            }
+        }
+
+        .rightContainer {
+            flex: 0.7;
+            padding:10px;
+
+            .noJob{
+                text-align: center;
+            }
+            .pagination {
+                margin-top: 20px;
+                display: flex;
+                justify-content: end;
+
+                @include mobile {
+                    justify-content: center;
+                }
+            }
+
+            @include mobile {
+                padding: 0;
+            }
+
+            
+        }
+    }
+}

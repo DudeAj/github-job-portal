@@ -1,0 +1,21 @@
+@import '../../global.scss';
+
+.footer {
+    
+    width: 100%;
+    margin-bottom: 10px;
+    display:flex;
+    justify-content: center;
+
+    p {
+        color: $greyColor;
+        font-weight: 300;
+        font-size:15px;
+        text-transform: center;
+
+        a {
+            text-decoration: underline;
+            color: $greyColor;
+        }
+    }
+}

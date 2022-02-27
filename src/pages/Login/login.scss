@@ -1,0 +1,57 @@
+@import "../../global.scss";
+
+.loginContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 100px;
+
+    .Login {
+        width: 20%;
+
+        @include mobile {
+            width: 90%;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .LoginIcon {
+            width:100%;
+            display: flex;
+            justify-content: center;
+
+            img {
+                width: 40px;
+            }
+        }
+        p {
+            margin: 0;
+            margin-bottom: 40px;
+            padding: 5px;
+            font-weight: 700;
+            font-size: 30em;
+            text-align: center;
+
+            @include mobile {
+                font-size: 20em;
+            }
+        }
+
+        label {
+            padding: 3px;
+        }
+
+        .bottom {
+            margin-top: 10px;
+            font-size: 13px;
+            a {
+                cursor: pointer;
+            }
+        }
+    }
+}

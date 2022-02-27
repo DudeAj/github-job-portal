@@ -1,0 +1,82 @@
+@import '../../global.scss';
+
+.cardContainer {
+    display: flex;
+    width: 100%;
+    cursor:pointer;
+
+    img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        display: block;
+        border-radius:5px;
+
+        @include mobile {
+            width: 80px;
+            height: 80px;
+        }
+    }
+
+    .cardContent {
+        padding-left: 10px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content:space-between;
+        margin-bottom: 5px;
+        text-transform: capitalize;
+
+        p {
+            margin:0;
+            font-size:11px;
+            font-weight: 700;
+            color: $mainColor;
+        }
+
+        h3 {
+            font-size: 18px;
+            margin: 5px 0;
+            font-weight: 400;
+            color: $mainColor;
+            
+        }
+
+        .infoBottom {
+            display: flex;
+            justify-content: space-between;
+
+            @include mobile {
+                display: block;
+            }
+
+            .link {
+                text-decoration: none;
+            }
+
+            .miniInfo {
+                margin-top: 5px;
+                display: flex;
+                
+                div {
+                    margin-right: 10px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .icon {
+                        color: $greyColor;
+                        width:16px;
+                    }
+                    span {
+                        margin-left: 5px;
+                        color: $greyColor;
+                        margin-right: 5px;
+                        font-size:11.5px;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+}

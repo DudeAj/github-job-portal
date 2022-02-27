@@ -1,0 +1,85 @@
+@import '../../global.scss';
+
+.job {
+    margin: 20px 90px;
+    display: flex;
+
+    @include mobile {
+        display: block;
+        margin: 15px 15px;
+    }
+    
+    .leftContainer {
+        flex:0.3;
+
+        .content {
+            padding: 10px;
+            @include mobile {
+                padding: 10px 0;
+            }
+
+            .back {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                color:$secondaryColor;
+                
+                span {
+                    margin-left: 15px;
+                    font-size:14px;
+                    text-decoration: none;
+                }
+            }
+
+            .hTitle {
+                margin-top: 35px;
+                text-transform: uppercase;
+                font-size:15px;
+                font-weight: 500;
+                color:$greyColor;
+            }
+
+            .detail {
+                font-size:14px;
+                color:$mainColor;
+
+                a {
+                    color:$secondaryColor;
+                    text-decoration: none;
+                    
+                    &:hover {
+                        text-transform: underline;
+                    }
+                }
+            }
+        }
+    }
+
+    .rightContainer {
+        flex:0.7;
+
+        @include mobile {
+            margin-top: 20px;
+        }
+
+        .form-data {
+            display: flex;
+            justify-content: center;
+        }
+
+        .heading {
+            display: flex;
+
+            @include mobile {
+                display: block;
+            }
+
+            h2 {
+                color:$mainColor;
+                margin: 0;
+                margin-right: 20px;
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
