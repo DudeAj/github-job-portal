@@ -8,7 +8,8 @@ const initalState = {
     applyInfo: {},
     loading: false,
     error: null,
-    places: []
+    places: [],
+    totalResult: 0
 }
 
 const reducer = (state = initalState, action) => {
@@ -31,6 +32,12 @@ const reducer = (state = initalState, action) => {
                 ...state,
                 applyInfo: action.payload,
                 error: null
+            }
+
+        case types.TOTAL_RESULT:
+            return {
+                ...state,
+                totalResult: action.payload
             }
 
         case types.LOAD_COMPANY_DATA:

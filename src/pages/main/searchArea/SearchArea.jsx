@@ -7,9 +7,8 @@ import { useEffect, useState } from 'react';
 
 const SearchArea = ({ query, placeSearchHandle, country, setCountry, handleFulltime }) => {
 
-
     const dispatch = useDispatch();
-    const places = useSelector(state => state.data.places)
+    const places = useSelector(state => state.data.places);
 
     //const [allCountry, setAllCountry] = useState([]);
     const [checked, setChecked] = useState(false);
@@ -26,11 +25,10 @@ const SearchArea = ({ query, placeSearchHandle, country, setCountry, handleFullt
     }
 
     useEffect(() => {
-        if (query.length > 0) {
-
+        if (query.length > 2) {
+            console.log(query);
             dispatch(fetchPlaces(query))
             //   setAllCountry(places)
-
         }
 
     }, [query]);
@@ -38,19 +36,19 @@ const SearchArea = ({ query, placeSearchHandle, country, setCountry, handleFullt
     return (
         <div className="searchAreaContainer">
             <FormControlLabel className="checkboxBtn" control={<Checkbox checked={checked} onChange={handledataChange} size="small" />} label="Full Time" />
-            <p>For Hiring</p>
+            {/* <p>For Hiring</p>
             <span>This Job Portal is made for those who are looking to hiring some new telants.</span>
             <p>For Candidates</p>
-            <span>All the Jobs are well refined and posted by reputed companies. If You are Looking for Better opportunity in the future</span>
-            {/* <p>Location</p>
+            <span>All the Jobs are well refined and posted by reputed companies. If You are Looking for Better opportunity in the future</span> */}
+            <p>Location</p>
             <Card>
                 <div className="searchArea">
                     <PublicIcon fontSize="small" className="icon" />
                     <input type="text" placeholder="City, state, zip code or country" value={query} onChange={(e) => placeSearchHandle(e.target.value)} />
                 </div>
-            </Card> */}
+            </Card>
 
-            {/* <div className="searchList">
+            <div className="searchList">
                 <RadioGroup
                     aria-labelledby="demo-radio-buttons-group-label"
                     defaultValue="america"
@@ -58,10 +56,10 @@ const SearchArea = ({ query, placeSearchHandle, country, setCountry, handleFullt
                     value={country}
                     onChange={handleChange}
                 >
-                    {allCountry.length > 0 && query.length > 2
+                    {places.length > 0 && query.length > 2
                         ?
-                        allCountry.map((item, index) => {
-                            return <FormControlLabel key={index} value={`${item}`} control={<Radio size="small" />} label={`${item}`} />
+                        places.map((item, index) => {
+                            return <FormControlLabel key={index} value={`${item.address}`} control={<Radio size="small" />} label={`${item.address},${item.country}`} />
                         })
                         : <>
                             <FormControlLabel value="england" control={<Radio size="small" />} label="England" />
@@ -71,7 +69,7 @@ const SearchArea = ({ query, placeSearchHandle, country, setCountry, handleFullt
                         </>}
                 </RadioGroup>
                 <p className="clearfilter" onClick={() => setCountry("")}>clear filters</p>
-            </div> */}
+            </div>
         </div>
     )
 }

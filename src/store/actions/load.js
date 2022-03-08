@@ -23,13 +23,22 @@ const fetchData = (data) => {
     }
 }
 
+const setTotalResult = (count) => {
+    return {
+        type: types.TOTAL_RESULT,
+        payload: count
+    }
+}
+
 export const fetchDataAsync = (query, page, filter) => {
     return dispatch => {
         dispatch(startLoading(true))
-        axios.get(`/api/jobs/search?q=${query}`)
+        axios.get(`/api/jobs/search?page=${page}${filter}&q=${query}`)
             .then(res => {
-                dispatch(fetchData(res.data.data))
-                dispatch(startLoading(false))
+                dispatch(fetchData(res.data.data));
+                dispatch(setTotalResult(res.data.searchCount));
+                dispatch(startLoading(false));
+                //console.log(res.data);
 
             })
             .catch(err => {
@@ -133,16 +142,16 @@ const setPlaces = (place) => {
 export const fetchPlaces = (query) => {
     return async dispatch => {
         try {
-            const response = await axios.get(`https://restcountries.com/v3.1/name/${query}`);
+            const response = await axios.get(`api/jobs/place?q=${query}`);
             const country = [];
-            response.data.forEach((data) => {
-                country.push(data.name.common)
-            })
+            response.data.data.forEach((data) => {
+                country.push(data)
+            });
             dispatch(setPlaces(country));
         }
 
         catch (err) {
-            dispatch(setError(err.response.data))
+            dispatch(setError(err.message))
         }
     }
 }
@@ -162,7 +171,7 @@ export const fetchCompanyUser = (id) => {
         }
         catch (err) {
             dispatch(setError(err.response.data))
-            console.log(err.response.data);
+            //console.log(err.response.data);
         }
 
     }

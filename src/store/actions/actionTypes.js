@@ -20,3 +20,5 @@ export const USER_APPLY_JOB = "USER_APPLY_JOB";
 export const APPLIED_USER = 'APPLIED_USER';
 
 export const RESET_STATE = "RESET_STATE";
+
+export const TOTAL_RESULT = "TOTAL_RESULT";

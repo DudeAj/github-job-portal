@@ -23,10 +23,13 @@ const Main = () => {
     const [search, setSearch] = useState('');
     const [countryFilter, setCountryFilter] = useState("");
     const [fullTime, setFulltime] = useState(false);
+    const totalCount = useSelector(state => state.data.totalResult);
 
-    console.log(error);
+
     useEffect(() => {
+
         if (countryFilter.length > 0) {
+            console.log(countryFilter)
             const filter = `&country=${countryFilter}`;
             dispatch(fetchDataAsync(search, page, filter));
         }
@@ -42,17 +45,16 @@ const Main = () => {
     };
 
     const handleSearch = (query) => {
-        setPage(1)
+        setPage(1);
         setSearch(query)
     }
     const handlePlaceSearch = (value) => {
-        setPlaceSearch(value)
+        setPlaceSearch(value);
     }
 
     if (!userToken) {
         return <Spinner />;
     }
-
 
     return (
         <div className="main">
@@ -77,14 +79,13 @@ const Main = () => {
                                         return <JobCards key={item.id} data={item} />
                                     }
                                 }
-
                                 else {
                                     return <JobCards key={item.id} data={item} />
                                 }
-
                             })}
                             <div className="pagination">
-                                <Pagination count={data.length < 10 ? page : 10} page={page} onChange={handleChange} variant="outlined" shape="rounded" color="primary" />
+                                { }
+                                <Pagination count={Math.ceil(totalCount / 5)} page={page} onChange={handleChange} variant="outlined" shape="rounded" color="primary" />
                             </div>
                         </> : <p className="noJob">No jobs available for the given location</p>}
                 </div>

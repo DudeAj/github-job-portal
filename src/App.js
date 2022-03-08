@@ -30,16 +30,11 @@ function App() {
 
   useEffect(() => {
     if (token) {
-
       dispatch(loadUserInfo(token));
-
     } else {
-
       history.push('/login');
     }
-
   }, [token]);
-
 
   return (
     <Switch>
